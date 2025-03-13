@@ -2,6 +2,7 @@ package App;
 
 import Commands.*;
 import exceptions.*;
+import java.io.IOException;
 import java.util.HashMap;
 
 
@@ -22,14 +23,19 @@ public class CommandManager
 
         if (data.length > 1) commandArg = data[1];
 
-        try
-        {
+        try {
             Command command = commands.get(commandName);
+            if (!(command instanceof Argumentable) && !commandArg.isEmpty())
+            {
+                throw new NotArgumentableCommandException();
+            }
             command.execute(commandArg);
-        }
-        catch (NoSuchCommandException e)
-        {
+        } catch (NotArgumentableCommandException e) {
             System.out.println(e.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println("no such command!");
+        } catch (IOException e) {
+            System.out.println("an io error was occurred!");
         }
     }
 

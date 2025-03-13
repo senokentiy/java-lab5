@@ -12,11 +12,13 @@ public class Main
         app.setScanner(new Scanner(System.in));
         app.setCommandManager(new CommandManager());
         app.setStorageManager(new StorageManager());
+        app.setSaver(new SaverCSV());
         app.setInputReader(new InputReader());
         app.setAppRunner(new AppRunner());
 
         app.getCommandManager().add("add", new Add());
         app.getCommandManager().add("help", new Help());
+        app.getCommandManager().add("save", new Save());
 
         app.getAppRunner().run();
     }

@@ -7,7 +7,6 @@ public class AppRunner
     {
         CommandManager commandManager = App.getInstance().getCommandManager();
         InputReader inputReader = App.getInstance().getInputReader();
-
         String input;
 
         while (true)
@@ -20,6 +19,7 @@ public class AppRunner
             catch (Exception e)
             {
                 System.out.println(e.getMessage());
+                break;
             }
         }
     }

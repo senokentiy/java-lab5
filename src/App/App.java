@@ -10,6 +10,7 @@ public class App
     Scanner scanner;
     CommandManager commandManager;
     StorageManager storageManager;
+    SaverCSV saver;
     InputReader inputReader;
     AppRunner appRunner;
 
@@ -20,6 +21,11 @@ public class App
         if (app == null)
             app = new App();
         return app;
+    }
+
+    public void setSaver(SaverCSV saver)
+    {
+        this.saver = saver;
     }
 
     public void setScanner(Scanner scanner)
@@ -50,6 +56,11 @@ public class App
     public Scanner getScanner()
     {
         return scanner;
+    }
+
+    public SaverCSV getSaver()
+    {
+        return saver;
     }
 
     public CommandManager getCommandManager()

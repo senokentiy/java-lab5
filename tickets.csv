@@ -1,0 +1,2 @@
+ticket_id,ticket_name,x,y,creation_date,price,ticket_type,venue_id,venue_name,capacity,venue_type
+1,1,1,1,2025-03-13,1,BUDGETARY,1,1,1,LOFT

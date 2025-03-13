@@ -1,11 +1,11 @@
 package exceptions;
 
 
-public class NoSuchCommandException extends RuntimeException
+public class NoSuchCommandException extends NullPointerException
 {
-    public NoSuchCommandException(String message)
+    public NoSuchCommandException()
     {
-        super(message);
+        super();
     }
 
     @Override
