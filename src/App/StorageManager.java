@@ -17,6 +17,15 @@ public class StorageManager
         tickets.add(ticket);
     }
 
+    public Ticket getTicketByID(long id)
+    {
+        for (Ticket ticket : tickets)
+        {
+            if (ticket.getID() == id) return ticket;
+        }
+        throw new NullPointerException();
+    }
+
     public LinkedList<Ticket> getTickets()
     {
         return tickets;

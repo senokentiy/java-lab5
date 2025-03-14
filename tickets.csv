@@ -1,4 +1,3 @@
-ticket_id,ticket_name,x,y,creation_date,price,ticket_type,venue_id,venue_name,capacity,venue_type
-1,1,1,1,2025-03-13,1,BUDGETARY,1,1,1,LOFT
-2,test,0,0,2025-03-14,0,USUAL,2,test,0,BAR
-3,0,0,0,2025-03-14,0,USUAL,3,0,0,BAR
+ticket_id,ticket_name,x,y,creation_date,price,ticket_type,venue_id,venue_name,venue_capacity,venue_type
+1,0,0,0,2025-03-14,0,USUAL,1,0,0,BAR
+2,1,1,1,2025-03-14,1,BUDGETARY,2,1,1,LOFT

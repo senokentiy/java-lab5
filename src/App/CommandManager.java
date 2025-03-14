@@ -23,14 +23,21 @@ public class CommandManager
         if (data.length > 1) commandArg = data[1];
 
         try {
-            Command command = commands.get(commandName);
-            if (!(command instanceof Argumentable) && !commandArg.isEmpty())
+            if (!commandName.isEmpty())
             {
-                throw new NotArgumentableCommandException();
+                Command command = commands.get(commandName);
+
+                if (!(command instanceof Argumentable) && !commandArg.isEmpty()) {
+                    throw new NotArgumentableCommandException();
+                } else if (command instanceof Argumentable && commandArg.isEmpty()) {
+                    throw new IllegalArgumentException();
+                }
+                command.execute(commandArg);
             }
-            command.execute(commandArg);
         } catch (NotArgumentableCommandException e) {
             System.out.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("command must have argument!");
         } catch (NullPointerException e) {
             System.out.println("no such command!");
         }

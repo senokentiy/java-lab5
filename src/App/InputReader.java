@@ -9,6 +9,7 @@ public class InputReader
     {
         Scanner scanner = App.getInstance().getScanner();
 
+        System.out.print(">  ");
         return scanner.nextLine().trim();
     }
 }

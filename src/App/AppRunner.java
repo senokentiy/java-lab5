@@ -7,18 +7,14 @@ public class AppRunner
     {
         CommandManager commandManager = App.getInstance().getCommandManager();
         InputReader inputReader = App.getInstance().getInputReader();
-
         String input;
 
         while (true)
         {
-            try
-            {
+            try {
                 input = inputReader.readInput();
                 commandManager.call(input);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
                 break;
             }

@@ -8,9 +8,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.LinkedList;
-
-import static java.lang.Math.max;
 
 
 public class ReaderCSV
@@ -20,22 +17,20 @@ public class ReaderCSV
     public void readCSV()
     {
         StorageManager storageManager = App.getInstance().getStorageManager();
-        HashSet<Long> saved = App.getInstance().getSaverCSV().getSavedTickets();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(path)))
         {
             reader.readLine();      // skip header
             String line;
             long lineNum = 1;
+            long id;
 
             while ((line = reader.readLine()) != null)
             {
                 lineNum++;
                 String[] fields = line.split(",");
-                try {
-                    long id = Integer.parseInt(fields[0]);
-                    saved.add(id);
 
+                try {
                     storageManager.addTicket(new Ticket(fields[1],
                             new Coordinates(Integer.parseInt(fields[2]),
                                     Integer.parseInt(fields[3])), LocalDate.parse(fields[4]),
@@ -49,7 +44,7 @@ public class ReaderCSV
             }
         } catch (FileNotFoundException e) {
             System.out.println("file '" + path + "' not found!");
-            System.exit(1);
+            SaverCSV.createFileWithHeaders();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

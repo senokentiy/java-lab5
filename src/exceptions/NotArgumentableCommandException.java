@@ -1,5 +1,6 @@
 package exceptions;
 
+
 public class NotArgumentableCommandException extends RuntimeException
 {
     public NotArgumentableCommandException()

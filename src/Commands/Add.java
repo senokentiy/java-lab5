@@ -12,8 +12,6 @@ public class Add implements Command
         StorageManager storageManager = App.getInstance().getStorageManager();
         InputReader inputReader = App.getInstance().getInputReader();
         Ticket ticket = new Ticket();
-        Coordinates coordinates = new Coordinates();
-        Venue venue = new Venue();
 
         while (true)
         {
@@ -32,7 +30,7 @@ public class Add implements Command
             try {
                 System.out.println("enter x coordinate:");
                 long x = Integer.parseInt(inputReader.readInput());
-                coordinates.setX(x);
+                ticket.getCoordinates().setX(x);
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("x coordinate must be integer! try again...");
@@ -46,7 +44,7 @@ public class Add implements Command
             try {
                 System.out.println("enter y coordinate:");
                 int y = Integer.parseInt(inputReader.readInput());
-                coordinates.setY(y);
+                ticket.getCoordinates().setY(y);
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("y coordinate must be integer! try again...");
@@ -54,8 +52,6 @@ public class Add implements Command
                 System.out.println("y coordinate can't be grater than 143! try again...");
             }
         }
-
-        ticket.setCoordinates(coordinates);
 
         while (true)
         {
@@ -88,7 +84,7 @@ public class Add implements Command
             try {
                 System.out.println("enter venue name:");
                 String venueName = inputReader.readInput();
-                venue.setName(venueName);
+                ticket.getVenue().setName(venueName);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println("name can't be empty! try again...");
@@ -100,7 +96,7 @@ public class Add implements Command
             try {
                 System.out.println("enter venue capacity:");
                 int capacity = Integer.parseInt(inputReader.readInput());
-                venue.setCapacity(capacity);
+                ticket.getVenue().setCapacity(capacity);
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("capacity must be integer! try again...");
@@ -114,14 +110,13 @@ public class Add implements Command
             try {
                 System.out.println("choose venue type:\n0) bar,\n1) loft,\n2) mall.");
                 int venueTypeNum = Integer.parseInt(inputReader.readInput());
-                venue.setVenueTypeByNum(venueTypeNum);
+                ticket.getVenue().setVenueTypeByNum(venueTypeNum);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println("no such option! try again...");
             }
         }
 
-        ticket.setVenue(venue);
         storageManager.addTicket(ticket);
         System.out.println("ticket was added!");
     }

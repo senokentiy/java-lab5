@@ -7,11 +7,11 @@ public class Ticket
 {
     private long id = 0L; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
-    private Coordinates coordinates; //Поле не может быть null
+    private Coordinates coordinates = new Coordinates(); //Поле не может быть null
     private LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private long price; //Поле может быть null, Значение поля должно быть больше 0
     private TicketType ticketType; //Поле может быть null
-    private Venue venue; //Поле не может быть null
+    private Venue venue = new Venue(); //Поле не может быть null
 
     public Ticket()
     {
@@ -32,6 +32,7 @@ public class Ticket
     {
         return id;
     }
+
 
     public String getName()
     {
@@ -105,8 +106,7 @@ public class Ticket
     @Override
     public String toString()
     {
-        return "Ticket{" +
-                "id=" + id +
+        return "{id=" + id +
                 ", name='" + name + '\'' +
                 ", coordinates=" + coordinates +
                 ", creationDate=" + creationDate +
