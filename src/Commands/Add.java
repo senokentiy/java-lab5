@@ -31,7 +31,7 @@ public class Add implements Command
         {
             try {
                 System.out.println("enter x coordinate:");
-                Long x = (long) Integer.parseInt(inputReader.readInput());
+                long x = Integer.parseInt(inputReader.readInput());
                 coordinates.setX(x);
                 break;
             } catch (NumberFormatException e) {
@@ -61,7 +61,7 @@ public class Add implements Command
         {
             try {
                 System.out.println("enter price:");
-                Long price = (long) Integer.parseInt(inputReader.readInput());
+                long price = Integer.parseInt(inputReader.readInput());
                 ticket.setPrice(price);
                 break;
             } catch (NumberFormatException e) {

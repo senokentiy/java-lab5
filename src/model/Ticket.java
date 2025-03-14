@@ -5,26 +5,30 @@ import java.time.LocalDate;
 
 public class Ticket
 {
-    private static Long id = 0L; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private long id = 0L; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private Long price; //Поле может быть null, Значение поля должно быть больше 0
+    private long price; //Поле может быть null, Значение поля должно быть больше 0
     private TicketType ticketType; //Поле может быть null
     private Venue venue; //Поле не может быть null
 
     public Ticket()
     {
-        id = newID();
         this.creationDate = LocalDate.now();
     }
 
-    private static Long newID()
+    public Ticket(String name, Coordinates coordinates, LocalDate creationDate, long price, TicketType ticketType, Venue venue)
     {
-        return ++id;
+        this.name = name;
+        this.coordinates = coordinates;
+        this.creationDate = creationDate;
+        this.price = price;
+        this.ticketType = ticketType;
+        this.venue = venue;
     }
 
-    public Long getId()
+    public Long getID()
     {
         return id;
     }
@@ -59,6 +63,11 @@ public class Ticket
         return venue;
     }
 
+    public void setID(long id)
+    {
+        this.id = id;
+    }
+
     public void setName(String name)
     {
         if (name.isEmpty()) { throw new IllegalArgumentException(); }
@@ -91,6 +100,20 @@ public class Ticket
     public void setVenue(Venue venue)
     {
         this.venue = venue;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Ticket{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", coordinates=" + coordinates +
+                ", creationDate=" + creationDate +
+                ", price=" + price +
+                ", ticketType=" + ticketType +
+                ", venue=" + venue +
+                '}';
     }
 }
 

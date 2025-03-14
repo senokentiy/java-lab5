@@ -7,6 +7,7 @@ public class AppRunner
     {
         CommandManager commandManager = App.getInstance().getCommandManager();
         InputReader inputReader = App.getInstance().getInputReader();
+
         String input;
 
         while (true)

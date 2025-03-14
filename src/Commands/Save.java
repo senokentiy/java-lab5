@@ -2,15 +2,14 @@ package Commands;
 
 import App.App;
 import App.SaverCSV;
-import java.io.IOException;
 
 
 public class Save implements Command
 {
     @Override
-    public void execute(String arg) throws IOException
+    public void execute(String arg)
     {
-        SaverCSV saver = App.getInstance().getSaver();
+        SaverCSV saver = App.getInstance().getSaverCSV();
         saver.save();
     }
 

@@ -3,22 +3,21 @@ package model;
 
 public class Venue
 {
-    private static Long id = 0L; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private long id = 0L; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
-    private Integer capacity; //Поле не может быть null, Значение поля должно быть больше 0
+    private int capacity; //Поле не может быть null, Значение поля должно быть больше 0
     private VenueType venueType; //Поле не может быть null
 
-    public Venue()
+    public Venue(String name, int capacity, VenueType venueType)
     {
-        id = newID();
+        this.name = name;
+        this.capacity = capacity;
+        this.venueType = venueType;
     }
 
-    private static long newID()
-    {
-        return ++id;
-    }
+    public Venue() {}
 
-    public long getId()
+    public long getID()
     {
         return id;
     }
@@ -28,7 +27,7 @@ public class Venue
         return name;
     }
 
-    public Integer getCapacity()
+    public int getCapacity()
     {
         return capacity;
     }
@@ -36,6 +35,11 @@ public class Venue
     public VenueType getVenueType()
     {
         return venueType;
+    }
+
+    public void setID(long id)
+    {
+        this.id = id;
     }
 
     public void setName(String name)
@@ -60,5 +64,16 @@ public class Venue
             case 1 -> this.venueType = VenueType.LOFT;
             case 2 -> this.venueType = VenueType.MALL;
         }
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Venue{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", capacity=" + capacity +
+                ", venueType=" + venueType +
+                '}';
     }
 }

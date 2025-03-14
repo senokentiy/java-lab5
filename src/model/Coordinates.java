@@ -3,12 +3,18 @@ package model;
 
 public class Coordinates
 {
-    private Long x; //Значение поля должно быть больше -205, Поле не может быть null
+    private long x; //Значение поля должно быть больше -205, Поле не может быть null
     private int y; //Максимальное значение поля: 143
+
+    public Coordinates(long x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
 
     public Coordinates() {}
 
-    public Long getX()
+    public long getX()
     {
         return x;
     }
@@ -18,7 +24,7 @@ public class Coordinates
         return y;
     }
 
-    public void setX(Long x)
+    public void setX(long x)
     {
         if (x <= -205) { throw new IllegalArgumentException(); }
         this.x = x;
@@ -28,5 +34,14 @@ public class Coordinates
     {
         if (y > 143) { throw new IllegalArgumentException(); }
         this.y = y;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Coordinates{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

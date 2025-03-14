@@ -11,6 +11,7 @@ public class App
     CommandManager commandManager;
     StorageManager storageManager;
     SaverCSV saver;
+    ReaderCSV reader;
     InputReader inputReader;
     AppRunner appRunner;
 
@@ -23,9 +24,14 @@ public class App
         return app;
     }
 
-    public void setSaver(SaverCSV saver)
+    public void setSaverCSV(SaverCSV saver)
     {
         this.saver = saver;
+    }
+
+    public void setReaderCSV(ReaderCSV reader)
+    {
+        this.reader = reader;
     }
 
     public void setScanner(Scanner scanner)
@@ -58,9 +64,14 @@ public class App
         return scanner;
     }
 
-    public SaverCSV getSaver()
+    public SaverCSV getSaverCSV()
     {
         return saver;
+    }
+
+    public ReaderCSV getReaderCSV()
+    {
+        return reader;
     }
 
     public CommandManager getCommandManager()
