@@ -21,6 +21,7 @@ public class Main
         app.getCommandManager().add("help", new Help());
         app.getCommandManager().add("save", new Save());
         app.getCommandManager().add("show", new Show());
+        app.getCommandManager().add("exit", new Exit());
 
         app.getReaderCSV().readCSV();
         app.getAppRunner().run();

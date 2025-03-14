@@ -7,13 +7,13 @@ public class App
 {
     private static App app;
 
-    Scanner scanner;
-    CommandManager commandManager;
-    StorageManager storageManager;
-    SaverCSV saver;
-    ReaderCSV reader;
-    InputReader inputReader;
-    AppRunner appRunner;
+    private Scanner scanner;
+    private CommandManager commandManager;
+    private StorageManager storageManager;
+    private SaverCSV saver;
+    private ReaderCSV reader;
+    private InputReader inputReader;
+    private AppRunner appRunner;
 
     private App() {}
 

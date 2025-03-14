@@ -1,11 +1,9 @@
 package Commands;
 
 
-import java.io.IOException;
-
 public interface Command
 {
-    void execute(String arg) throws IOException;
+    void execute(String arg);
 
     String getDescription();
 }

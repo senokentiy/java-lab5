@@ -2,7 +2,6 @@ package App;
 
 import Commands.*;
 import exceptions.*;
-import java.io.IOException;
 import java.util.HashMap;
 
 
@@ -34,8 +33,6 @@ public class CommandManager
             System.out.println(e.getMessage());
         } catch (NullPointerException e) {
             System.out.println("no such command!");
-        } catch (IOException e) {
-            System.out.println("an io error was occurred!");
         }
     }
 
