@@ -4,13 +4,11 @@ import model.Ticket;
 import java.util.LinkedList;
 
 
-public class StorageManager
-{
+public class StorageManager {
     private final LinkedList<Ticket> tickets = new LinkedList<>();
     private long maxID;
 
-    public void addTicket(Ticket ticket)
-    {
+    public void addTicket(Ticket ticket) {
         ticket.setID(++maxID);
         ticket.getVenue().setID(maxID);
         maxID = ticket.getID();
@@ -21,7 +19,20 @@ public class StorageManager
     {
         for (Ticket ticket : tickets)
         {
-            if (ticket.getID() == id) return ticket;
+            if (ticket.getID() == id) { return ticket; }
+        }
+        throw new NullPointerException();
+    }
+
+    public void removeByID(long id)
+    {
+        for (Ticket ticket : tickets)
+        {
+            if (ticket.getID() == id)
+            {
+                tickets.remove(ticket);
+                return;
+            }
         }
         throw new NullPointerException();
     }

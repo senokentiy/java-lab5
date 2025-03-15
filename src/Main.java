@@ -24,6 +24,7 @@ public class Main
         app.getCommandManager().add("exit", new Exit());
         app.getCommandManager().add("update", new Update());
         app.getCommandManager().add("clear", new Clear());
+        app.getCommandManager().add("remove_by_id", new RemoveByID());
 
         app.getReaderCSV().readCSV();
         app.getAppRunner().run();
